@@ -284,7 +284,7 @@ you should place your code here."
   (setq linum-format "%4d \u2502")
 
 
-  ;; workaround until spacemacs fixed the issue
+  ;; workaround until spacemacs fixes the issue
   (defalias 'display-buffer-in-major-side-window 'window--make-major-side-window)
   )
 
