@@ -1,0 +1,15 @@
+ /home/morteza/scripts/remove-all-containers
+
+docker run -d -p 8301:8301 -p 8301:8301/udp -p 8400:8400 -p 8500:8500 -p 53:53/udp -v /home/morteza/micro-businesses/consul:/data -v /var/run/docker.sock:/var/run/docker.sock -v /home/morteza/micro-businesses/consul-config:/etc/consul -h $(hostname) --name consul-agent progrium/consul:latest -join 192.168.0.4 -advertise 192.168.0.2 -dc home -config-file /etc/consul/consul.json
+
+docker run -d -v /var/run/docker.sock:/tmp/docker.sock -h $(hostname) --name consul-registrator gliderlabs/registrator:latest -ip 192.168.0.2 consul://192.168.0.2:8500
+
+docker run -p 8080:80 -d microbusinesses/service-discovery-service:latest /ServiceDiscoveryService --consul-address=192.168.0.2:8500 --consul-scheme=http
+
+docker run -p 40000:80 -d microbusinesses/address-service:latest /AddressService --consul-address=192.168.0.2:8500 --consul-scheme=http
+
+docker run -p 40001:80 -d microbusinesses/user-service:latest /UserService --consul-address=192.168.0.2:8500 --consul-scheme=http
+
+docker run -p 40002:80 -d microbusinesses/signup-service:latest /SignupService --consul-address=192.168.0.2:8500 --consul-scheme=http
+
+docker run -p 80:80 -d microbusinesses/home-cooked-meals:latest /HomeCookedMeal --consul-address=192.168.0.2:8500 --consul-scheme=http

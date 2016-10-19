@@ -1,0 +1,9 @@
+docker run -p 9042:9042 --name home-cassandra -d cassandra:latest
+
+docker run -p 8300:8300 -p 8301:8301 -p 8301:8301/udp -p 8302:8302 -p 8302:8302/udp -p 8400:8400 -p 8500:8500 -p 53:53/udp -v /home/morteza/micro-businesses/consul:/data -h $(hostname) --name consul-server -d progrium/consul:latest -server -bootstrap -dc home -advertise 192.168.0.4 -ui-dir /ui
+
+docker run -d -v /var/run/docker.sock:/tmp/docker.sock -h $(hostname) --name consul-registrator gliderlabs/registrator:latest -ip 192.168.0.4 consul://192.168.0.4:8500
+
+sleep 60
+
+SetupMicroBusinesses
