@@ -4,4 +4,6 @@ docker pull microbusinesses/address-service:latest
 docker pull microbusinesses/user-service:latest
 docker pull microbusinesses/signup-service:latest
 docker pull microbusinesses/service-discovery-service:latest
+docker pull microbusinesses/tenant-service:latest
+docker pull microbusinesses/tenantui-service:latest
 docker pull microbusinesses/home-cooked-meals:latest
