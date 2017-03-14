@@ -156,7 +156,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+                               :size 11
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -328,6 +328,10 @@ you should place your code here."
   (setq-default js2-basic-offset 2)
   (setq-default js-indent-level 2)
   (global-hl-line-mode -1) ; Disable current line highlight
+  (setq-default evil-escape-key-sequence "jk")
+  (setq-default evil-escape-delay 0.5)
+  ;; (spacemacs/set-leader-keys "mcr" 'react-mode)
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . (lambda () (react-mode))))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
