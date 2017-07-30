@@ -31,6 +31,8 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     ruby
+     csv
      octave
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -56,7 +58,6 @@ values."
      colors
      yaml
      common-lisp
-     c-c++
      shell-scripts
      (shell :variables shell-default-shell 'eshell)
      ibuffer
@@ -68,10 +69,6 @@ values."
      version-control
      gnus
      react
-     vagrant
-     ruby
-     terraform
-     scala
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
