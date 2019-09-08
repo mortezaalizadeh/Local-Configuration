@@ -844,3 +844,15 @@ au FileType yaml set tabstop=2
 
 " Plug 'easymotion/vim-easymotion'
 map <Leader> <Plug>(easymotion-prefix)
+
+inoremap {      {}<Left>
+inoremap {<CR>  {<CR>}<Esc>O
+inoremap {{     {
+inoremap {}     {}
+
+inoremap (      ()<Left>
+inoremap (<CR>  (<CR>)<Esc>O
+inoremap ((     (
+inoremap ()     ()
+
+
