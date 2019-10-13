@@ -75,6 +75,7 @@ Plug 'tclh123/vim-thrift'                      " Thrift syntax highlighting
 Plug 'zchee/deoplete-go', { 'do': 'make'}      " Go auto completion
 "Plug 'zchee/deoplete-jedi'                     " Go auto completion
 Plug 'zimbatm/haproxy.vim'                     " HAProxy syntax highlighting
+Plug 'jparise/vim-graphql'
 
 " Colorschemes
 Plug 'NLKNguyen/papercolor-theme'
@@ -855,4 +856,7 @@ inoremap (<CR>  (<CR>)<Esc>O
 inoremap ((     (
 inoremap ()     ()
 
+" autoreload files changes by extenal programs
+set autoread
+au FocusGained * :checktime
 
