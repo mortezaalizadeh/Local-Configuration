@@ -41,6 +41,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'easymotion/vim-easymotion'
 Plug 'elzr/vim-json'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'tomlion/vim-solidity'
 
 " HTML Plugin
 Plug 'mattn/emmet-vim'
