@@ -85,6 +85,9 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'kaicataldo/material.vim'
 Plug 'rakr/vim-one'
 
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+
 call plug#end()
 
 "----------------------------------------------
@@ -398,6 +401,11 @@ let g:calendar_view = "days"                  " Set days as the default view
 "----------------------------------------------
 nnoremap <c-p> :FZF<cr>
 nnoremap <c-g> :Rg<cr>
+
+"----------------------------------------------
+" Plugin: 'prettier/vim-prettier'
+"----------------------------------------------
+nnoremap <c-f> :Prettier<cr>
 
 "----------------------------------------------
 " Plugin: 'majutsushi/tagbar'
