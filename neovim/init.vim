@@ -64,19 +64,21 @@ Plug 'fishbullet/deoplete-ruby'                " Ruby auto completion
 Plug 'hashivim/vim-terraform'                  " Terraform syntax highlighting
 Plug 'kchmck/vim-coffee-script'                " CoffeeScript syntax highlighting
 Plug 'kylef/apiblueprint.vim'                  " API Blueprint syntax highlighting
-Plug 'leafgarland/typescript-vim'              " TypeScript syntax highlighting
 Plug 'lifepillar/pgsql.vim'                    " PostgreSQL syntax highlighting
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'} " TypeScript auto completion
 Plug 'mxw/vim-jsx'                             " JSX syntax highlighting
-"Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.vim/plugged/gocode/nvim/symlink.sh' }
+Plug 'leafgarland/typescript-vim'              " TypeScript syntax highlighting
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'} " TypeScript auto completion
 Plug 'pangloss/vim-javascript'                 " JavaScript syntax highlighting
+Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
+
+"Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.vim/plugged/gocode/nvim/symlink.sh' }
 Plug 'plasticboy/vim-markdown'                 " Markdown syntax highlighting
 Plug 'rodjek/vim-puppet'                       " Puppet syntax highlighting
 Plug 'tclh123/vim-thrift'                      " Thrift syntax highlighting
 Plug 'zchee/deoplete-go', { 'do': 'make'}      " Go auto completion
 "Plug 'zchee/deoplete-jedi'                     " Go auto completion
 Plug 'zimbatm/haproxy.vim'                     " HAProxy syntax highlighting
-Plug 'jparise/vim-graphql'
+Plug 'jparise/vim-graphql'        " GraphQL syntax
 
 " Colorschemes
 Plug 'NLKNguyen/papercolor-theme'
@@ -85,8 +87,8 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'kaicataldo/material.vim'
 Plug 'rakr/vim-one'
 
-" post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -881,4 +883,19 @@ vnoremap <leader>P "+P
 " autoreload files changes by extenal programs
 set autoread
 au FocusGained * :checktime
+
+
+" CoC extensions
+let g:coc_global_extensions = ['coc-tsserver']
+
+" Remap keys for applying codeAction to the current line.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
